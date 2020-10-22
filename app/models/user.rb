@@ -31,7 +31,7 @@ class User < ApplicationRecord
         Micropost.where(user_id: self.following_ids + [self.id])
     end
     
-    has_many :favorites
+    has_many :favorites, dependent: :destroy
     has_many :favoriteposts, through: :favorites, source: :micropost
     
     def favor(this_micropost)
