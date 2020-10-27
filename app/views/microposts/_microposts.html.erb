@@ -12,6 +12,8 @@
         <div class="row ">
           <%= render "favorites/favorite_button", micropost: micropost %>
           <% if current_user == micropost.user %>
+            <!--ここに編集ボタンを追加する-->
+            <%= link_to "Edit", edit_micropost_path(micropost), class: "btn btn-success btn-sm offset-sm-1" %>
             <%= link_to "Delete", micropost, method: :delete, data: {confirm: "You Sure?" }, class: "btn btn-danger btn-sm offset-sm-1" %>
           <% end %>
         </div>
